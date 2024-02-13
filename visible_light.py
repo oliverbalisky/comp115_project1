@@ -1,44 +1,9 @@
 import turtle 
 import math
 
-def drawCeilingLight (t):
-
-    """draw main circles for ceiling light"""
-
-    light_colors = ["grey10", "lemonchiffon", "FloralWhite", "cornsilk1", "beige", "LightGoldenrodYellow", "LightYellow", "white"]
-    radius_change = [80, 70, 60, 50, 40, 30, 20, 10]
-
-    for i in range (8):
-
-        moveTurtle(t, 0, -radius_change[i])
-        t.color(light_colors[i])
-        t.begin_fill()
-        t.circle(radius_change[i])
-        t.end_fill()
-
-        radius_change1 = int(radius_change[i])
-
-        moveTurtle(t, 0, -radius_change[i])
-     
-        if radius_change [i] == 80: 
-            for r in Rainbow:
-                
-                t.color(r)
-                t.circle(radius_change1)
-                t.up()
-                t.right(90)
-                t.forward(1)
-                t.left(90)
-                t.down()
-                radius_change1 = radius_change1 + 1
-        else:
-            pass
-    
-    darkArea(t)
-
 def moveTurtle (t, x, y):
 
-    """ move turtle to x/y coordinate"""
+    """move turtle to x/y coordinate"""
 
     t.up()
     t.goto(x, y)
@@ -99,6 +64,38 @@ def darkArea(t):
         t.circle (450)
         t.end_fill()
 
+def drawCeilingLight (t):
+
+    """draw main circles for ceiling light"""
+
+    light_colors = ["grey10", "lemonchiffon", "FloralWhite", "cornsilk1", "beige", "LightGoldenrodYellow", "LightYellow", "white"]
+    radius_change = [80, 70, 60, 50, 40, 30, 20, 10]
+
+    for i in range (8):
+
+        moveTurtle(t, 0, -radius_change[i])
+        t.color(light_colors[i])
+        t.begin_fill()
+        t.circle(radius_change[i])
+        t.end_fill()
+
+        radius_change1 = int(radius_change[i])
+
+        moveTurtle(t, 0, -radius_change[i])
+     
+        if radius_change [i] == 80: 
+            for r in Rainbow:
+                
+                t.color(r)
+                t.circle(radius_change1)
+                t.up()
+                t.right(90)
+                t.forward(1)
+                t.left(90)
+                t.down()
+                radius_change1 = radius_change1 + 1
+    
+    darkArea(t)
 
 def drawLightRays(t, side, spin):
 
@@ -112,7 +109,6 @@ def drawLightRays(t, side, spin):
             t.left(360/spin)
 
         side = findHyp(side)
-
         
 wn = turtle.Screen()
 light = turtle.Turtle()
